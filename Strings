@@ -1,0 +1,268 @@
+#1. Get the length of a string
+# Given a string, find how many characters it contains including spaces.
+s = "Hello, World!"
+print(len(s))
+
+
+#2. Convert a string to uppercase
+# Given a student's name in lowercase, convert it to all uppercase letters.
+name = "tanvi"
+print(name.upper())
+
+
+#3. Convert a string to lowercase
+# A user typed their email in mixed case. Convert it to lowercase for storage.
+email = "tanvi.VARSHNEY7@gmail.com"
+print(email.lower())
+
+
+#4. Remove whitespace from both ends
+# A form input came in with extra spaces around it. Clean it up.
+s = "     Tanvi      "
+print(s.strip())
+
+
+#5. Replace a word in a sentence
+# Replace the word 'bad' with 'good' in the given sentence.
+s = "Today was a bad day"
+print(s.replace("bad","good"))
+
+
+#6. Check if a string starts with a word
+# Check whether the sentence starts with the word 'Hello'.
+s = "Hello, how are you?"
+print(s.startswith("Hello"))
+
+
+#7. Check if a string ends with a suffix
+# Check whether the filename ends with '.py'.
+filename = "assignment.py"
+print(filename.endswith(".py"))
+
+
+#8. Split a sentence into a list of words
+# Split the sentence into individual words.
+s = "the cat sat on the mat"
+print(s.split(" "))
+
+
+#9. Join a list of words into a sentence
+# Join the list of words into a single sentence separated by spaces.
+words = ["Python", "is", "fun"]
+print(" ".join(words))
+
+
+#10. Find the position of a substring
+# Find the index where the word 'cat' first appears in the string.
+s = "the cat sat on the mat"
+print(s.find("cat"))
+
+
+#11. Count how many times a letter appears
+# Count how many times the letter 'a' appears in the string.
+s = "banana"
+print(s.count("a"))
+
+
+#12. Capitalise the first letter
+# A student's name was entered in all lowercase. Capitalise only the first letter.
+name = "tanvi"
+print(name.capitalize())
+
+
+#13. Title-case a full name
+# Convert a full name entered in lowercase to title case.
+name = "john michael doe"
+print(name.title())
+
+
+#14. Check if a string contains only digits
+# A user entered their age. Check if the input contains only numeric digits.
+s1 = "2004"
+s2 = "20a4"
+print(s1.isdigit())
+print(s2.isdigit())
+
+
+#15. Check if a string is alphabets only
+# Validate that a name field contains only letters and no numbers or symbols.
+s1 = "Alice"
+s2 = "Ali3e"
+print(s1.isalpha())
+print(s2.isalpha())
+
+
+#16. Strip only left-side whitespace
+# Remove leading spaces from the string but keep trailing spaces intact.
+s = "         Tanvi          "
+print(s.lstrip())
+
+
+#17. Strip only right-side whitespace
+# Remove trailing spaces from the string but keep leading spaces intact.
+s = "         Tanvi          "
+print(s.rstrip())
+
+
+#18. Check if all characters are uppercase
+# Check if the given string is entirely in uppercase letters.
+s1 = "TANVI"
+s2 = "Tanvi"
+print(s1.isupper())
+print(s2.isupper())
+
+
+#19. Check if all characters are lowercase
+# Check whether the string is entirely in lowercase.
+s1 = "TANVI"
+s2 = "tanvi"
+s3 = "TaNvi"
+print(s1.islower())
+print(s2.islower())
+print(s3.islower())
+
+
+#20. Centre-align a string within a width
+# Centre the word 'Python' within a total width of 20 characters, padded with dashes.
+word = "Python"
+print(word.center(20,"-"))
+
+
+#21. Swap the case of every character
+# Given a mixed-case string, convert uppercase to lowercase and vice versa.
+s = "Hello World"
+print(s.swapcase())
+
+
+#22. Check if a string is alphanumeric
+# Validate a username that should contain only letters and digits, no spaces or symbols.
+s1 = "tanvi27"
+s2 = "tanvi7@"
+print(s1.isalnum())
+print(s2.isalnum())
+
+
+#23. Left-pad a number with zeros
+# A student ID must always be 6 digits wide. Pad with leading zeros if shorter.
+stu_id = "27"
+print(stu_id.zfill(6))
+
+
+#24. Split a CSV line into fields
+# Given a CSV string, split it by commas to extract individual values.
+s = "Alice,25,Math,88"
+print(s.split(","))
+
+
+#25. Right-align a string within a width
+# Right-align a product name within a width of 20 characters for a formatted receipt.
+s = "Apple"
+print(s.rjust(20))
+
+
+#26. Left-align a string within a width
+# Left-align a student name within 15 characters so scores line up neatly.
+s = "Alice"
+print(s.ljust(15))
+
+
+#27. Check if a string contains only spaces
+# After stripping input, check whether the remaining content is purely whitespace.
+s1 = "   "
+s2 = "  a  "
+print(s1.isspace())
+print(s2.isspace())
+
+
+#28. Format a greeting using f-string
+# Given a name and a city, build a formatted greeting where the city appears in uppercase.
+name = "Tanvi"
+city = "Toronto"
+greeting = f"Welcome, {name}! You are from {city.upper()}."
+print(greeting)
+
+
+#29. Extract domain from an email address
+# Given an email address, extract only the domain part (everything after the @).
+email = "tanvi.varshney7@gmail.com"
+domain = email.split("@")[1]
+print(domain)
+
+
+#30. Build a formatted student report line
+# Format a student record as a fixed-width line: name left-aligned in 15 chars, score right-aligned in 5 chars.
+name = "Tanvi"
+score = 95
+grade = "A"
+report = name.ljust(15) + str(score).rjust(5) + "     " + grade
+print(report)
+
+
+#QLC1. Is it a palindrome?
+# Given a string, determine whether it reads the same forwards and backwards. Ignore spaces and letter case. Return True or False.
+s1 = "Race car"
+new_string = s1.lower().replace(" ", "")
+print(new_string == new_string[::-1])
+
+s2 = "Hello"
+new_string = s2.lower().replace(" ", "")
+print(new_string == new_string[::-1])
+
+s3 = "A man a plan a canal Panama"
+new_string = s3.lower().replace(" ", "")
+print(new_string == new_string[::-1])
+
+
+#QLC2. Count the vowels
+# Given a sentence, count the total number of vowels (a, e, i, o, u) it contains. Ignore case.
+s = "Hello World"
+s = s.lower()
+vowels = s.count("a") + s.count("e") + s.count("i") + s.count("o") + s.count("u")
+print(vowels)
+
+
+#QLC3. Reverse the words in a sentence
+# Given a sentence, reverse the order of the words. Individual letters within each word stay the same.
+s = "I love Python"
+words = s.split(" ")
+reverse = words[::-1]
+result = " ".join(reverse)
+print(result)
+
+
+#QLC4. Mask a credit card number
+# Given a 16-digit credit card number (with or without dashes), return a masked version where all digits
+# except the last 4 are replaced with *. Format in groups of 4 separated by dashes.
+
+#METHOD 1
+card1 = "1234-5678-9012-3456"
+last_4 = card1[-4:]
+result = "****-****-****-" + last_4
+print(result)
+
+#METHOD 2
+card2 = "1234-5678-9012-3456"
+card2 = card2.replace("-", "")
+last_4 = card2[-4:]
+masked = "*" * 12 + last_4
+result = "-".join([masked[0:4], masked[4:8], masked[8:12], masked[12:16]])
+print(result)
+
+
+#QLC5. Find the most frequent character
+# Given a string, find the letter that appears most often. Ignore case and spaces. On a tie, return the
+# one that appears first.
+s = "Tanvi Varshney"
+s = s.lower().replace(" ", "")
+most_char = max(s, key = s.count)
+count = s.count(most_char)
+print(f"{most_char} ({count} times)")
+
+
+#QLC6. Build a username from a full name
+# Given a person's full name, generate a username: take the first letter of the first name, add the
+# full last name, convert to lowercase. Skip the middle name if present.
+name = "John Michael Smith"
+name_list = name.strip().split(" ")
+username = (name_list[0][0:1]+name_list[-1]).lower()
+print(username)
