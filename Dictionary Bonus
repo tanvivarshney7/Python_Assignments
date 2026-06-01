@@ -1,0 +1,115 @@
+#1.  Merge two dictionaries using the | operator
+#Two configuration dictionaries need to be merged into one. Use the | operator to combine them in a single
+# expression without modifying either original. If a key exists in both, the right-hand dictionary wins.
+defaults = {
+    "theme": "light",
+    "lang": "en",
+    "timeout": 30
+}
+user_cfg = {
+    "theme": "dark",
+    "font": "Arial"
+}
+merged = defaults | user_cfg
+print(merged)
+
+
+#2. Update a dictionary in-place using |=
+#A settings dictionary needs to be updated with new values from a patch dictionary. Use the |= operator to
+# apply the patch directly onto the original dictionary in one line
+settings = {
+    "volume": 70,
+    "brightness": 80,
+    "wifi": True
+}
+patch = {
+    "brightness": 50,
+    "bluetooth": True
+}
+settings |= patch
+print(settings)
+
+
+#3. Count character frequency using Counter
+#Given a word, count how many times each character appears. Use Counter from the collections module — it
+# returns a dictionary-like object where keys are characters and values are their counts.
+#Method 1
+from collections import Counter
+word = "mississippi"
+result = Counter(word)
+print(result)
+
+#Method 2
+import collections
+word = "mississippi"
+print(collections.Counter(word))
+
+
+#4. Find the two most common words
+#Given a list of words, find the 2 most frequently occurring ones along with their counts. Use Counter
+# with .most_common(n) to retrieve the top n items.
+#Method 1
+from collections import Counter
+words = ["apple","banana","apple","cherry","banana","apple","cherry","banana"]
+print(Counter(words).most_common(2))
+
+#Method 2
+import collections
+words = ["apple","banana","apple","cherry","banana","apple","cherry","banana"]
+print(collections.Counter(words).most_common(2))
+
+
+#5. Group items without KeyError using defaultdict
+#Given a list of (student, subject) tuples, group all subjects per student into a dictionary of lists. Use
+# defaultdict(list) so you never get a KeyError when a student appears for the first time.
+from collections import defaultdict
+data = [("Ali","Math"),("Mia","Science"),("Ali","English"),("Mia","Math")]
+students = defaultdict(list)
+for student, subject in data:
+    students[student].append(subject)
+print(dict(students))
+
+
+#6.  Maintain insertion order with OrderedDict
+#Create an OrderedDict of tasks. Then use .move_to_end() to move the task 'email' to the front of the
+# order (last=False means front). Print the final order of keys.
+from collections import OrderedDict
+tasks = OrderedDict([("standup","done"),("email","pending"),("review","done")])
+tasks.move_to_end("email", last=False)
+print(tasks)
+
+
+#7. Search multiple dictionaries as one using ChainMap
+#You have a local config and a global config. Use ChainMap to create a combined view where local values take
+# priority over global ones. Look up 'timeout' and 'retries' from the combined map
+from collections import ChainMap
+local_cfg = {"timeout": 10, "debug": True}
+global_cfg = {"timeout": 30, "retries": 5, "debug": False}
+combined = ChainMap(local_cfg, global_cfg)
+print(combined["timeout"])
+print(combined["retries"])
+
+
+#8. Build a dictionary from two lists using zip()
+#Given two separate lists — one of keys and one of values — combine them into a single dictionary using zip() and
+# dict(). This is a common pattern when reading data from CSV columns or API responses.
+keys = ["name", "age", "city", "score"]
+values = ["Ali", 22, "Toronto", 91]
+result = dict(zip(keys, values))
+print(result)
+
+
+#9. Unpack a dictionary into a function call using **
+#A function greet() accepts name, age, and city as keyword arguments. You have these values stored in a
+# dictionary. Use ** unpacking to pass the dictionary directly into the function without listing each argument.
+def greet(name, age, city):
+    print(f"Hi {name}, age {age}, from {city}!")
+info = {"name": "Mia", "age": 23, "city": "Vancouver"}
+greet(**info)
+
+
+#10. Iterate a dictionary in reverse order
+#Given a dictionary of student ranks, iterate through it in reverse insertion order using reversed(). Print
+# each key from last inserted to first.
+ranks = {"Ali": 1, "Mia": 2, "Joe": 3, "Eva": 4}
+print(list(reversed(ranks)))
