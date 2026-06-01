@@ -1,0 +1,321 @@
+#1. Access a value by key
+#You have a student record stored as a dictionary. Retrieve the student's age directly using its key.
+student = {
+    "name": "Tanvi",
+    "age": 27,
+    "grade": "A"
+}
+print(student["age"])
+
+
+#2. Safely get a value with a default
+#A product dictionary may or may not have a 'discount' key. Use .get() to retrieve it safely and return 0
+# if it does not exist.
+product = {
+    "name": "Laptop",
+    "price": 1500
+}
+print(product.get("discount", 0))
+
+
+#3. Add a new key-value pair
+#A user profile is missing an 'email' field. Add it to the dictionary.
+profile = {
+    "username": "Tanvi",
+    "age": 27
+}
+profile["email"] = "tanvi.varshney7@gmail.com"
+print(profile)
+
+
+#4. Update an existing value
+#A student's grade has been revised. Update the 'grade' key in the dictionary to the new value 'A+'.
+student = {
+    "name": "Mia",
+    "grade": "B"
+}
+student["grade"] = "A+"
+print(student)
+
+
+#5. Remove a key and get its value
+#Remove the 'temp' key from a session dictionary and store its value in a variable.
+session = {
+    "user": "Ali",
+    "temp": "xyz123",
+    "role": "admin"
+}
+removed = session.pop("temp")
+print("removed = ", removed)
+print("dict = ", session)
+
+
+#6. Count the number of keys
+#Find out how many fields are stored in a contact dictionary.
+contact = {
+    "name": "Leo",
+    "phone": "555-1234",
+    "city": "Toronto",
+    "email": "leo@mail.com"
+}
+print(len(contact))
+
+
+#7. Get all keys from a dictionary
+#Retrieve all the field names (keys) from an employee record.
+employee = {
+    "id": 101,
+    "name": "Tanvi",
+    "dept": "Tech",
+    "salary": 70000
+}
+print(employee.keys())
+
+
+#8. Get all values from a dictionary
+#Retrieve all the values stored in a config dictionary.
+config = {
+    "host": "localhost",
+    "port": 8080,
+    "debug": True
+}
+print(config.values())
+
+
+#9. Check if a key exists
+#Before accessing a key, check whether 'phone' exists in the contact dictionary.
+contact = {
+    "name": "Eva",
+    "email": "eva@gmail.com"
+}
+print("phone" in contact)
+
+
+#10. Empty a dictionary
+#A temporary cache dictionary needs to be wiped clean. Clear all its contents.
+cache = {"a": 1, "b": 2, "c": 3}
+cache.clear()
+print(cache)
+
+
+#11. Get all key-value pairs
+#Retrieve all the key-value pairs from an inventory dictionary as a view object.
+inventory = {
+    "apples": 50,
+    "bananas": 30,
+    "mangoes": 20
+}
+print(inventory.items())
+
+
+#12. Merge another dictionary into this one
+#A student's record needs two new fields added at once. Use .update() to add both 'city' and 'phone' in one step.
+student = {"name": "Tanvi", "age": 21}
+new_info = {"city": "Toronto", "phone": "624-1995"}
+student.update(new_info)
+print(student)
+
+
+#13. Overwrite values using update
+#A product's price and stock have changed. Use .update() to apply both changes at once.
+product = {"name": "Phone", "price": 699, "stock": 100}
+updates = {"price": 649, "stock": 80}
+product.update(updates)
+print(product)
+
+
+#14. Get a value with a custom default message
+#Look up a student's score. If the subject does not exist, return 'Not enrolled' instead of an error.
+scores = {"Math": 88, "Science": 75, "English": 90}
+subject = "History"
+result = scores.get(subject, "Not enrolled")
+print(result)
+
+
+#15. Remove a key safely with a default
+#Try to remove a 'nickname' key from a profile. If it does not exist, return 'No nickname' instead of
+# raising an error.
+profile = {"name": "Tanvi", "age": 27}
+removed_value = profile.pop("nickname", "No nickname")
+print(removed_value)
+
+
+#16. Create a dictionary from keyword arguments
+#Create a new dictionary for a book using the dict() constructor with keyword arguments.
+book = dict(title="Dune", author="Frank Herbert", year=1965)
+print(book)
+
+
+#17. Make a shallow copy of a dictionary
+#You want to modify a student's record without changing the original. First make a copy, then update
+# the grade in the copy.
+original = {"name": "Joe", "grade": "B"}
+copied = original.copy()
+copied["grade"] = "A"
+print("copy = ", copied)
+print("original = ", original)
+
+
+#18. Create a dictionary with default values
+#Create a dictionary for a new student where all subject scores start at 0.
+subjects = ["Math", "Science", "English", "History"]
+scores = dict.fromkeys(subjects, 0)
+print(scores)
+
+
+#19. Check if a key is NOT in the dictionary
+#Verify that 'salary' is not already present in an employee record before adding it.
+#Method 1
+employee = {"name": "Sara", "dept": "IT", "age": 30}
+print("salary" not in employee)
+
+#Method 2
+employee = {"name": "Sara", "dept": "IT", "age": 30}
+result = "salary" in employee.keys()
+print(result == False)
+
+
+#20. Count total values and find their sum
+#Find how many values are stored in the dictionary, then find the sum of all numeric values in a scores dictionary.
+scores = {
+    "Math": 88,
+    "Science": 76,
+    "English": 90,
+    "History": 84
+}
+count = len(scores)
+total = sum(scores.values())
+print("Count:", count)
+print("Sum:", total)
+
+
+#21. Build a nested dictionary and access deep values
+#Create a nested dictionary for a school with two students, each having a name and score. Then retrieve
+# the score of the second student using chained key access.
+
+#Method 1
+school = {
+    "student1": {"name": "Tanvi", "score": 98},
+    "student2": {"name": "Tina", "score": 95}
+}
+#using dict[]
+print(school["student2"]["score"])
+#using .get()
+print(school.get("student2", {}).get("score"))
+
+#Method 2
+school = {
+    "student1": {"name": "Tanvi", "score": 98},
+    "student2": {"name": "Tina", "score": 95}
+}
+print(school["student2"].get("score"))
+
+
+#22. Rename a key in a dictionary
+#A dictionary has a key called 'fname'. Rename it to 'first_name' without losing its value. Use .pop() to
+# remove the old key and .update() to add the new one.
+#Method 1
+person = {"fname": "Alice", "age": 28, "city": "London"}
+removed_value = person.pop("fname")
+new_person = {"first_name": removed_value}
+new_person.update(person)
+print(new_person)
+
+#Method 2 (first_name added in last)
+person = {"fname": "Alice", "age": 28, "city": "London"}
+person.update({"first_name": person.pop("fname")})
+print(person)
+
+
+#23. Create a template and fill it in
+#First create a student template with keys 'name', 'age', 'grade' all set to None. Then update it with
+# actual values.
+keys = ["name", "age", "grade"]
+student = dict.fromkeys(keys, None)
+values = {"name": "Leo", "age": 19, "grade": "A"}
+student.update(values)
+print(student)
+
+
+#24. Implement a visit counter
+#A page visit tracker stores page names and visit counts. Increment the visit count for 'home' by 1
+# using .get() to safely handle the case where the page may not exist yet.
+visits = {"about": 10, "contact": 5}
+page = "home"
+visits[page] = visits.get(page, 0) + 1
+print(visits)
+
+
+#25. Swap keys and values
+#Given a dictionary of country codes, create a new dictionary where the values become keys and the keys
+# become values.
+#Method 1
+codes = {"IN": "India", "US": "USA", "CA": "Canada"}
+swapped = dict((value, key) for key, value in codes.items())
+print(swapped)
+
+#Method 2
+codes = {"IN": "India", "US": "USA", "CA": "Canada"}
+swapped = {value: key for key, value in codes.items()}
+print(swapped)
+
+#26. Extract keys and values as separate lists
+#Given a score dictionary, extract all subject names into one list and all scores into another list.
+scores = {"Math": 88, "Science": 76, "English": 90}
+subjects = scores.keys()
+marks = scores.values()
+print("subjects =", list(subjects))
+print("marks =", list(marks))
+
+
+#27. Find the key with the highest value
+#Given a dictionary of student scores, find which student scored the highest using max() with .get as
+# the key argument.
+scores = {"Tanvi": 90, "Tina": 85, "Shivali": 89, "Tanya": 95}
+top_student = max(scores, key=scores.get)
+print(top_student)
+
+
+#28. Merge two dictionaries into a third
+#Given two separate dictionaries for personal info and academic info, merge both into a single new
+# dictionary without modifying either original.
+personal = {"name": "Sam", "age": 20}
+academic = {"grade": "A", "score": 92}
+new_dict = dict(personal)
+new_dict.update(academic)
+print(new_dict)
+
+
+#29. Add a key only if it does not exist
+#Use .setdefault() to add a 'loyalty_points' key only if it is not already present. If the key exists,
+# leave it unchanged.
+customer1 = {"name": "Ali", "tier": "Gold"}
+customer2 = {"name": "Mia", "tier": "Silver", "loyalty_points": 200}
+customer1.setdefault("loyalty_points", 0)
+customer2.setdefault("loyalty_points", 0)
+print(customer1)
+print(customer2)
+
+
+#30. Find the subject with the lowest score
+#Given a dictionary of exam scores, find the subject in which the student performed the worst using
+# min() on .items().
+#Method 1
+scores = {
+    "Math": 78,
+    "Science": 65,
+    "English": 88,
+    "History": 59
+}
+worst_subject = min(scores, key=scores.get)
+print(worst_subject)
+
+#Method 2
+scores = {
+    "Math": 78,
+    "Science": 65,
+    "English": 88,
+    "History": 59
+}
+worst_subject = min(scores.items(), key=lambda item: item[1])
+print(worst_subject[0])
